@@ -36,7 +36,14 @@ CREATE TABLE example_table (
 -- CREATE USER '사용자명'@'접속IP' IDENTIFIED BY '비밀번호';
 CREATE USER 'developer'@'localhost' IDENTIFIED BY 'P!ssw0rd'; 
 
+-- 생성된 사용자 보기
+USE mysql;
+SELECT * FROM user;
 
+-- DROP: 데이터 구조를 삭제하는 명령어
+
+-- 테이블 삭제
+DROP TABLE example_table;
 
 
 
