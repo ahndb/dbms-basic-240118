@@ -45,6 +45,31 @@ SELECT * FROM user;
 -- 테이블 삭제
 DROP TABLE example_table;
 
+-- 데이터베이스 삭제
+DROP DATABASE practice_sql;
+
+-- ALTER: 데이터 구조를 변경하는 명령어
+
+-- 테이블 컬럼 추가
+ALTER TABLE example_table 
+ADD added_column INT;
+
+-- 테이블 컬럼 삭제
+ALTER TABLE example_table
+DROP COLUMN added_column;
+
+-- 테이블 컬럼 타입 수정
+ALTER TABLE example_table
+MODIFY COLUMN string_column VARCHAR(200);
+
+-- 테이블 컬럼 이름 수정
+ALTER TABLE example_table
+CHANGE string_column varchar_column VARCHAR(200);
+
+
+
+
+
 
 
 
