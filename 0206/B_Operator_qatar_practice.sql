@@ -14,26 +14,51 @@ INSERT INTO player VALUES('엔도 와타루', 0, null, null, null, '일본');
 
 -- 플레이어 이름이 조규성이면 나이를 27, 포지션을 FW, 프로팀을 FC밀트윌란, 등번호 10으로 변경
 UPDATE player
-SET name= '조규성', age =27, position = 'FW', pro_team = 'FC밀트윌란', uniform_number = 10, country = '대한민국'
+SET 
+	age =27, 
+	position = 'FW', 
+	pro_team = 'FC밀트윌란', 
+	uniform_number = 10
 WHERE name = '조규성';
 
 -- 플레이어 이름이 박용우이면 나이를 32, 포지션을 MF, 프로팀을 알아인 FC, 등번호 5로 변경
 UPDATE player
-SET name= '박용우', age =32, position = 'MF', pro_team = '알아인 FC', uniform_number = 5, country = '대한민국'
+SET 
+	age =32, 
+	position = 'MF', 
+	pro_team = '알아인 FC', 
+	uniform_number = 5
 WHERE name = '박용우';
 
 -- 플레이어 이름이 쿠보 다케후사 이면서 국적이 일본이면 나이를 24, 포지션을 MF/FW, 프로팀을 레알 소시에다드 등번호 20로 변경
 UPDATE player
-SET name= '쿠보 다케후사', age =24, position = 'MF/FW', pro_team = '레알 소시에다드', uniform_number = 20, country = '일본'
+SET 
+	age =24, 
+	position = 'MF/FW', 
+	pro_team = '레알 소시에다드', 
+	uniform_number = 20
 WHERE name = '쿠보 다케후사';
 
 SELECT * FROM player;
 
+-- 이름이 손흥민인 선수를 조회
+SELECT * FROM player WHERE name = '손흥민';
 
+UPDATE player
+SET 
+	age =34,
+    position = 'MF',
+	pro_team = '토트넘 홋스퍼',
+    uniform_number = 7
+WHERE name = '손흥민';
 
+-- 대한민국 선수 중 나이가 30 세 이상인 선수를 조회
+SELECT * FROM player
+WHERE country ='대한민국' AND age >= 30;
 
-
-
+-- 국가명이 요르단인 국가를 제거
+DELETE FROM country
+WHERE name ='요르단';
 
 
 
