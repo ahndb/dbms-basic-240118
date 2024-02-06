@@ -100,9 +100,66 @@ DELETE FROM foreign_table;
 
 SELECT * FROM primary_table;
 
+-- 특정 테이블을 참조하고 있는 테이블이 존재한다면 테이블 구조를 제거할 수 없음
+DROP TABLE primary_table;
+
+-- 특정 테이블에서 기본키를 참조하고 있는 레코드가 존재한다면 해당 레코드를 수정하지 못 함
+UPDATE primary_table 
+SET primary_column = 3 
+WHERE primary_column = 1;
 
 
+-- ON UPDATE / ON DELETE 옵션
+-- ON UPDATE: 참조하고 있는 테이블의 기본키가 변경되었을 때 동작
+-- ON DELETE: 참조하고 있는 테이블의 기본키가 삭제되었을 때 동작
 
+-- CASCADE : 참조하고 있는 테이블에서 데이터를 삭제하거나 수정했을 때, 
+-- 			참조하는 테이블에서도 삭제와 수정이 같이 일어남(편의상 많이 씀)
 
+-- SET NULL : 참조하고 있는 테이블에서 데이터를 삭제하거나 수정했을 때,
+-- 		   참조하는 테이블의 해당 데이터를 null로 지정
 
+-- RESTRICT : 참조하는 테이블에 참조하는 데이터가 존재한다면 수정, 삭제가 불가능(기본값임)
+
+CREATE TABLE optional_foreign_table (
+	primary_column INT,
+    foreign_column INT,
+    FOREIGN KEY (foreign_column)
+    REFERENCES primary_table (primary_column)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
+);
+
+INSERT INTO primary_table VALUES (1, 1);
+INSERT INTO optional_foreign_table VALUES (1, 1);
+SELECT * FROM optional_foreign_table;
+
+UPDATE primary_table SET primary_column = 3
+WHERE primary_column = 1;
+SELECT * FROM optional_foreign_table;
+
+DELETE FROM primary_table WHERE primary_column = 3;
+
+-- CHECK 제약조건: 특정 컬럼에 값을 제한함
+CREATE TABLE check_table (
+	primary_column INT PRIMARY KEY,
+    check_column VARCHAR(10) CHECK(check_column IN('남', '여'))
+);
+
+INSERT INTO check_table VALUES (1, '남');
+
+-- CHECK로 지정된 컬럼은 지정 조건에 부합하지 않으면 INSERT 불가능
+-- INSERT INTO check_table VALUES (2, '남자'); //Check constraint 'check_table_chk_1' is violated.
+
+-- CHECK로 지정된 컬럼은 지정 조건에 부합하지 않으면 UPDATE 불가능
+-- UPDATE check_table SET check_column = '남자'; // Check constraint 'check_table_chk_1' is violated.
+
+-- DEFAULT 제약조건: 컬럼에 데이터가 지정되지 않았을 때 사용할 기본값 지정
+CREATE TABLE default_table (
+	primary_column INT PRIMARY KEY,
+    default_column VARCHAR(10) DEFAULT'기본값'
+);
+INSERT INTO default_table (primary_column) VALUES (1);
+INSERT INTO default_table VALUES (2, null);
+SELECT * FROM default_table;
 
