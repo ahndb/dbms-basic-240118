@@ -59,7 +59,9 @@ WHERE country ='대한민국' AND age >= 30;
 -- 국가명이 요르단인 국가를 제거
 DELETE FROM country
 WHERE name ='요르단';
+SELECT * FROM country;
 
+SELECT * FROM player;
 
 
 
