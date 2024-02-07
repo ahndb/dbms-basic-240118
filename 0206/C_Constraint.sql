@@ -83,6 +83,7 @@ CREATE TABLE foreign_table (
     CONSTRAINT foreign_key FOREIGN KEY(foreign_column) 
     REFERENCES primary_table (primary_column)
 );
+
 -- FOREGIN KEY 제약조건이 걸린 컬럼에 INSERT 작업시 
 -- 참조하고 있는 테이블의 컬럼에 값이 존재하지 않으면 지정 할 수 없음
 INSERT INTO foreign_table VALUES (1, 1);
