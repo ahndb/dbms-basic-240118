@@ -24,7 +24,6 @@ WHERE employee_name = '홍길동'; -- FROM에서 서브쿼리사용시 이름바
 SELECT E.name, E.department_code, D.name 
 FROM department D INNER JOIN employee E
 ON D.name = '개발부';
-
 SELECT * FROM employee;
 SELECT * FROM department;
 
