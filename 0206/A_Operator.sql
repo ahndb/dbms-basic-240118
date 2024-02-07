@@ -8,7 +8,6 @@ ALTER TABLE jeju ADD null_column2 DOUBLE;
 UPDATE jeju
 SET above_avg_spd = true
 WHERE speed_80m > 5.5;
-
 UPDATE jeju
 SET above_avg_spd = false
 WHERE speed_80m < 5.5;
@@ -16,7 +15,6 @@ WHERE speed_80m < 5.5;
 UPDATE jeju
 SET above_avg_dir = true
 WHERE direction_50m > 160;
-
 UPDATE jeju
 SET above_avg_dir = false
 WHERE direction_50m < 160;
