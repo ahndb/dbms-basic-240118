@@ -21,7 +21,6 @@ WHERE employee_name = '홍길동'; -- FROM에서 서브쿼리사용시 이름바
 							-- Error Code: 1054. Unknown column 'name' in 'where clause'
 
 -- 부서 이름이 '개발부'인 사원이름, 부서코드, 부서명을 조회
--- 부서 이름이 '개발부'인 사원이름, 부서코드를 조회
 SELECT E.name, E.department_code, D.name 
 FROM department D INNER JOIN employee E
 ON D.name = '개발부';
@@ -29,11 +28,13 @@ ON D.name = '개발부';
 SELECT * FROM employee;
 SELECT * FROM department;
 
+-- 부서 이름이 '개발부'인 사원이름, 부서코드를 조회
 SELECT name, department_code
 FROM employee
 WHERE department_code = (
-	SELECT name FROM department WHERE name = '인사부'
+	SELECT code FROM department WHERE name = '인사부'
 );
+
 
 
 
