@@ -9,6 +9,7 @@ SELECT COUNT(*) FROM jeju WHERE speed_80m > 3;
 -- SUM() : 특정 컬럼의 값을 모두 합한 결과를 반환
 SELECT SUM(speed_80m) FROM jeju;
 SELECT SUM(speed_80m), SUM(speed_70m) FROM jeju WHERE observe_data LIKE '2023-08-__';
+SELECT SUM(speed_80m) / COUNT(speed_80m) FROM jeju;
 
 -- AVG() : 특정 컬럼의 값의 평균을 반환
 SELECT AVG(speed_80m) FROM jeju;
