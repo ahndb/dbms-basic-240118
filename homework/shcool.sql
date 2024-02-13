@@ -18,6 +18,7 @@ CREATE TABLE cousrse (
 	course_code VARCHAR(5) PRIMARY KEY,
     title VARCHAR(40) UNIQUE NOT NULL,
     credits FLOAT NOT NULL
+    -- 담당교수 컬럼을 하나 만들고 제약조건 설정 후 교수테이블에 교수를 외래키로 잡음
 );
 CREATE TABLE professor (
 	professor_id VARCHAR(7) PRIMARY KEY,

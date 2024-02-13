@@ -14,9 +14,11 @@ CREATE TABLE employee (
     position_id VARCHAR(100) NOT NULL,
     department_id VARCHAR(100) NOT NULL,
     spervisor_id VARCHAR(100) NOT NULL
+	-- 부서테이블에 부서 코드를 왜래키로 잡음
 );
 CREATE TABLE position (
 	position_id VARCHAR(5) PRIMARY KEY,
     title VARCHAR(20) UNIQUE NOT NULL,
     rolo TEXT
 );
+-- 다대다의 경우 테이블 하나를 추가해서 기본값들을 기본키로 넣고 추가로 넣을 값을 넣음.

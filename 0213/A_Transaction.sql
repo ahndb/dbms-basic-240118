@@ -93,17 +93,3 @@ SELECT * FROM email_authentication;
 SELECT * FROM jeju LIMIT 10;
 -- LIMIT 제외 레코드 개수, 개수 : 상위에서 제외 레코드 개수만큼 제외 후 개수만큼 데이터만 보여줌
 SELECT * FROM jeju LIMIT 10, 3;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
