@@ -78,7 +78,7 @@ SELECT * FROM email_authentication
 WHERE email = 'email3@email.com' AND authentication_code = 'OCMD';
 
 -- 4. 회원가입 처리
-INSERT user VALUES ('idddd3', 'P!ssw0rd', 'email3@email.com');
+INSERT INTO user VALUES ('idddd5', 'P!ssw0rd', 'email5@email.com');
 
 -- 특정 세이브포인트로 롤백
 ROLLBACK TO SAVEPOINT A;
